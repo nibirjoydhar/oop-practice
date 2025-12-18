@@ -1,15 +1,17 @@
 public class Student
 {
-    public string Name;
-    public int Age;
+    public string Name { get; }
+    public int Age { get; }
+
+    public Student(string name, int age)
+    {
+        StudentValidator.Validate(name, age);
+        Name = name;
+        Age = age;
+    }
 
     public void Print()
     {
-        if (string.IsNullOrEmpty(Name))
-        {
-            System.Console.WriteLine("Invalid name");
-        }
-
-        System.Console.WriteLine($"Name: {Name}, Age: {Age}");
+        Console.WriteLine($"Name: {Name}, Age: {Age}");
     }
 }
